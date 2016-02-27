@@ -1,6 +1,9 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="code.js"></script>
 
 <div class="login-page">
   <div class="form">
@@ -13,15 +16,18 @@
        placeholder="password"/>
 
       <div id="dynamicInput">
-            emergency contact name<br><input type="text" name="contact[]">
-            emergency contact phone number<br><input type="text" name="phone[]">
+            <br><input type="text" name="contact[]" id = name-1
+            placeholder = "emergency contact name">
+            <br><input type="text" name="phone[]" id = number-1
+            placeholder = "emergency contact phone number">
       </div>
-     <input type="button" value="Add another contact" onClick="addInput('dynamicInput');">
-
+      <input id="addAnother" type="button" value="ADD ANOTHER CONTACT" onClick="addInput('dynamicInput');">
 
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
+
+
     <form class="login-form">
       <input type="text"
       placeholder="e-mail address"/>
