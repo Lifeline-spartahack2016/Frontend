@@ -5,11 +5,16 @@
        placeholder="name"/>
        <input type="text" id = "email"
        placeholder="email address"/>
-      <input type="password" id = "password"      placeholder="password"/>
-      <input type="text" id = "contact"
-       placeholder="emergency contact name"/>
-      <input type="text" id = "phone"
-       placeholder="emergency contact phone number"/>
+      <input type="password" id = "password"      
+       placeholder="password"/>
+      
+      <div id="dynamicInput">
+            emergency contact name<br><input type="text" name="contact[]">
+            emergency contact phone number<br><input type="text" name="phone[]">
+      </div>
+     <input type="button" value="Add another contact" onClick="addInput('dynamicInput');">
+
+
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
