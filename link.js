@@ -22,16 +22,16 @@ $(document).ready(function(){
 					contact[i] = null;
 					number[i] = null;
 				}
-		}	
+		}
 
 		myFirebaseRef.createUser({
 	  		email    : email,
 	  		password : userpassword
-		}, 
+		},
 		function(error, userData) {
 	  		if (error) {
 	    		console.log("Error creating user:", error);
-	  		} 
+	  		}
 	  		else {
 	    		console.log("Successfully created user account with uid:", userData.uid);
 				myFirebaseRef.child(userData.uid).set({
@@ -53,7 +53,7 @@ $(document).ready(function(){
 					}
 				});
 			}
-		});	
+		});
 	});
 
 
@@ -73,7 +73,7 @@ $(document).ready(function(){
 	  		if (error) {
 	    		console.log("Login Failed!", error);
 	    		alert("Check your email and password again fat fingers.....")
-	  		} 
+	  		}
 	  		else {
 	    		console.log("Authenticated successfully with payload:", authData);
 
@@ -85,7 +85,7 @@ $(document).ready(function(){
 
 	    		var contact1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact1/fireContact1");
 	    		var phone1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact1/fireNumber1");
-	    		
+
 	    		var contact2 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact2/fireContact2");
 	    		var phone2 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact2/fireNumber2");
 
@@ -158,7 +158,7 @@ $(document).ready(function(){
 								contact[i] = null;
 								number[i] = null;
 							}
-					}	
+					}
 
 					var myFirebaseRef = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/");
 
@@ -183,6 +183,5 @@ $(document).ready(function(){
   				}, function (errorObject) {
   					console.log("The read failed: " + errorObject.code);
   				});
-	});		
+	});
 });
-
