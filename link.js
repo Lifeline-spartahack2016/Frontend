@@ -5,7 +5,10 @@ $(document).ready(function(){
 
 		var name = $("#name").val();
 		var email = $("#email").val();
+		encodeURIComponent(email).replace(/\./g, '%2E')
+		var username = $("#username").val();
 		var password = $("#password").val();
+		encodeURIComponent(password).replace(/\./g, '%2E')
 
 		var contact = [];
 		var number = [];
@@ -24,9 +27,10 @@ $(document).ready(function(){
 				}
 		}	
 
-		myFirebaseRef.child('email').push({
+		myFirebaseRef.child(username).push({
 				fireName: name,
 				fireEmail: email,
+				fireUsername: username,
 				firePassword: password,
 				allcontacts: {
 					newcontact1: {
