@@ -14,8 +14,6 @@
        placeholder="name"/>
        <input type="text" id = "email"
        placeholder="email address"/>
-       <input type="text" id = "username"
-       placeholder="username"/>
       <input type="password" id = "password"
        placeholder="password"/>
 
@@ -39,12 +37,24 @@
 
 
     <form class="login-form">
-      <input type="text"
-      placeholder="username"/>
-      <input type="password" 
+      <input type="text" id = user_email
+      placeholder="email"/>
+      <input type="password" id = user_password
       placeholder="password"/>
-      <button>login</button>
+      <button id = "login">login</button>
       <p class="message">Not registered? <a href="#">Create an account</a></p>
     </form>
+
+
+    <form class="edit-contacts" style="display: none">
+      emergency contact #1<input type="text" id = emergencycontact1> 
+      phone number<input type="text" id = emergencyphone1> 
+      emergency contact #2<input type="text" id = emergencycontact2>       
+      phone number<input type="text" id = emergencyphone2>    
+      emergency contact #3<input type="text" id = emergencycontact3>    
+      phone number<input type="text" id = emergencycontact3> 
+      <button id = "save">save changes</button>
+    </form>
+
   </div>
 </div>
