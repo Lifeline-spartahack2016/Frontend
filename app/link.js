@@ -87,6 +87,8 @@ $(document).ready(function(){
 
 	    		uid = authData.uid;
 
+	    		var name = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/name");
+
 	    		var contact1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact1/name");
 	    		var phone1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact1/number");
 
@@ -95,6 +97,12 @@ $(document).ready(function(){
 
 	    		var contact3 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact3/name");
 	    		var phone3 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact3/number");
+
+	    		name.on("value", function(snapshot) {
+  					$('[id$=emergencyname]').val(snapshot.val());
+  				}, function (errorObject) {
+  					console.log("The read failed: " + errorObject.code);
+  				});
 
 	    		contact1.on("value", function(snapshot) {
   					$('[id$=emergencycontact1]').val(snapshot.val());
@@ -153,6 +161,8 @@ $(document).ready(function(){
 					var contact = [];
 					var number = [];
 
+					name = $("#emergencyname").val();
+
 					contact[1] = $("#emergencycontact1").val();
 					number[1] = $("#emergencyphone1").val();
 					contact[2] = $("#emergencycontact2").val();
@@ -162,7 +172,7 @@ $(document).ready(function(){
 
 					for(var i=1; i<=3; i++)
 					{
-							if (contact[i] == undefined || number[i] == undefined)
+							if (contact[i] == undefined || contact[i] == "" ||  number[i] == undefined || number[i] == "")
 							{
 								contact[i] = null;
 								number[i] = null;
@@ -172,7 +182,7 @@ $(document).ready(function(){
 					var myFirebaseRef = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/");
 
 					myFirebaseRef.set({
-					name: user.name,
+					name: name,
 					email: user.email,
 					contacts: {
 						contact1: {

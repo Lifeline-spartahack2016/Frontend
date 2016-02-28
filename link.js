@@ -35,20 +35,20 @@ $(document).ready(function(){
 	  		else {
 	    		console.log("Successfully created user account with uid:", userData.uid);
 				myFirebaseRef.child(userData.uid).set({
-					fireName: name,
-					fireEmail: email,
-					allcontacts: {
-						newcontact1: {
-							fireContact1: contact[1],
-							fireNumber1: number[1]
+					name: name,
+					email: email,
+					contacts: {
+						contact1: {
+							name: contact[1],
+							number: number[1]
 						},
-						newcontact2: {
-							fireContact2: contact[2],
-							fireNumber2: number[2]
+						contact2: {
+							name: contact[2],
+							number: number[2]
 						},
-						newcontact3: {
-							fireContact3: contact[3],
-							fireNumber3: number[3]
+						contact3: {
+							name: contact[3],
+							number: number[3]
 						}
 					}
 				});
@@ -87,14 +87,14 @@ $(document).ready(function(){
 
 	    		uid = authData.uid;
 
-	    		var contact1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact1/fireContact1");
-	    		var phone1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact1/fireNumber1");
+	    		var contact1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact1/name");
+	    		var phone1 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact1/number");
 
-	    		var contact2 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact2/fireContact2");
-	    		var phone2 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact2/fireNumber2");
+	    		var contact2 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact2/name");
+	    		var phone2 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact2/number");
 
-	    		var contact3 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact3/fireContact3");
-	    		var phone3 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/allcontacts/newcontact3/fireNumber3");
+	    		var contact3 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact3/name");
+	    		var phone3 = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/contacts/contact3/number");
 
 	    		contact1.on("value", function(snapshot) {
   					$('[id$=emergencycontact1]').val(snapshot.val());
@@ -172,20 +172,20 @@ $(document).ready(function(){
 					var myFirebaseRef = new Firebase("https://lifeline-app.firebaseio.com/" + uid + "/");
 
 					myFirebaseRef.set({
-					fireName: user.fireName,
-					fireEmail: user.fireEmail,
-					allcontacts: {
-						newcontact1: {
-							fireContact1: contact[1],
-							fireNumber1: number[1]
+					name: user.name,
+					email: user.email,
+					contacts: {
+						contact1: {
+							name: contact[1],
+							number: number[1]
 						},
-						newcontact2: {
-							fireContact2: contact[2],
-							fireNumber2: number[2]
+						contact2: {
+							name: contact[2],
+							number: number[2]
 						},
-						newcontact3: {
-							fireContact3: contact[3],
-							fireNumber3: number[3]
+						contact3: {
+							name: contact[3],
+							number: number[3]
 						}
 					}
 				});
