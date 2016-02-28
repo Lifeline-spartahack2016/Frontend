@@ -54,6 +54,10 @@ $(document).ready(function(){
 				});
 			}
 		});
+
+		$(".login-form").css("display", "");
+	    $(".register-form").css("display", "none");
+	    $(".edit-contacts").css("display", "none");
 	});
 
 
@@ -72,7 +76,7 @@ $(document).ready(function(){
 		function(error, authData) {
 	  		if (error) {
 	    		console.log("Login Failed!", error);
-	    		alert("Check your email and password again fat fingers.....")
+	    		alert("Invalid Credentials.\nPlease check your email and password and try again!")
 	  		}
 	  		else {
 	    		console.log("Authenticated successfully with payload:", authData);
@@ -136,9 +140,14 @@ $(document).ready(function(){
 	$("#save").click(function(e){
 		e.preventDefault();
 
+		$(".login-form").css("display", "");
+	    $(".register-form").css("display", "none");
+	    $(".edit-contacts").css("display", "none");
+			
 		var userUrl = new Firebase("https://lifeline-app.firebaseio.com/" + uid);
 
 		userUrl.on("value", function(snapshot) {
+  					
   					user = snapshot.val();
 
 					var contact = [];
