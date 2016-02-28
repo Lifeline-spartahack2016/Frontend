@@ -1,10 +1,13 @@
 $( document ).ready(function() {
-// console.log("ready");
-  $('.message a').click(function(){
-    // alert("kjhgjfjkl;jhgk");
-    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+
+  $('.message a').click(function(e){
+
+    // console.log(e.id);
+    $('form.register-form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    $('form.login-form').animate({height: "toggle", opacity: "toggle"}, "slow");
+
  });
- // alert("sdf");
+
 });
 
 
@@ -19,6 +22,7 @@ function addInput(divName){
           counter++;
           if (counter == (limit))  {
                $("#addAnother").css("display", "none");
+
 
      }
 }
